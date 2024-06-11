@@ -21,21 +21,28 @@
 
     <main class="container-fluid">
 
-        <div th:if="${rect.size() > 0}" th:object="${rect[0]}">
-            <table class="table table-bordered">
+        <table class="table table-bordered">
+
+            <div class="custom-rect" id="custom-rect"></div>
             
             <tr>
-                <th class="header-row">Name</th>
-                <td class="value-row"><span th:text="${name}"></span></td>
+                <th class="col-1">Name</th>
+                <td class="col-2"></td>
             </tr>
             <tr>
-                <th class="header-row">Color</th>
-                <td class="value-row"><span th:text="${color}"></span></td>
+                <th>Width</th>
+                <td"></td>
             </tr>
-        </table>
-        
-        </div>
+            <tr>
+                <th>Height</th>
+                <td"></td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td"></td>
+            </tr>
 
+        </table>
 
     </main>
 </body>
