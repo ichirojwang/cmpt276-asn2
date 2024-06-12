@@ -28,33 +28,36 @@
             <div class="custom-rect" id="custom-rect" 
                 th:style="'width: ' + ${myRect.width} + 'px;' +
                           'height: ' + ${myRect.height} + 'px;' +
-                          'background-color: ' + ${myRect.color} + ';'"></div>
+                          'background-color: ' + ${myRect.color} + ';'">
+            </div>
 
-            <table class="table table-bordered table-details">
+            <div class="container-details">
+            
+                <table class="table table-bordered table-details">
 
-                <tr>
-                    <th class="col-attribute">Name</th>
-                    <td class="col-value"><span th:text="${myRect.name}"></span></td>
-                </tr>
-                <tr>
-                    <th class="col-attribute">Width</th>
-                    <td class="col-value"><span th:text="${myRect.width}"></span></td>
-                </tr>
-                <tr>
-                    <th class="col-attribute">Height</th>
-                    <td class="col-value"><span th:text="${myRect.height}"></span></td>
-                </tr>
-                <tr>
-                    <th class="col-attribute">Color</th>
-                    <td class="col-value"><span th:text="${myRect.color.substring(1).toUpperCase()}"></span></td>
-                </tr>
+                    <tr>
+                        <th class="col-attribute">Name</th>
+                        <td class="col-value"><span th:text="${myRect.name}"></span></td>
+                    </tr>
+                    <tr>
+                        <th class="col-attribute">Width</th>
+                        <td class="col-value"><span th:text="${myRect.width}"></span></td>
+                    </tr>
+                    <tr>
+                        <th class="col-attribute">Height</th>
+                        <td class="col-value"><span th:text="${myRect.height}"></span></td>
+                    </tr>
+                    <tr>
+                        <th class="col-attribute">Color</th>
+                        <td class="col-value"><span th:text="${myRect.color.substring(1).toUpperCase()}"></span></td>
+                    </tr>
 
+                </table>
 
-            </table>
+                <input type="submit" class="btn btn-secondary" value="Edit Attributes">
+
+            </div>
         </div>
-
-        
-
     </main>
 </body>
 </html>

@@ -43,12 +43,6 @@ public class RectangleController {
         int newHeight = Integer.parseInt(newrect.get("height"));
         String newColor = newrect.get("color");
 
-        // if (newWidth < 0 || newHeight < 0) {
-        //     response.setStatus(400);
-        //     response.getWriter().write("Dimensions must be positive.");
-        //     return "redirect:/rectangles/view";
-        // }
-
         rectRepo.save(new Rectangle(newName, newWidth, newHeight, newColor));
         response.setStatus(201);
 
@@ -67,13 +61,26 @@ public class RectangleController {
     }
 
     @GetMapping("/rectangles/details")
-    public String detailsRectangle(@RequestParam("rid") int rid, Model model) {
+    public String detailsRectangle(@RequestParam("rid") String rid, Model model) {
 
-        Rectangle aRect = rectRepo.findByRid(rid);
-        model.addAttribute("myRect", aRect);
-
-        return "rectangles/showDetails";
+        try {
+            int rectId = Integer.parseInt(rid);
+            Rectangle aRect = rectRepo.findByRid(rectId);
+            if (aRect != null) {
+                model.addAttribute("myRect", aRect);
+                return "rectangles/showDetails";
+            }        
+            else {
+                return "rectangles/notFound";
+            }
+        }
+        catch (NumberFormatException exception) {
+            return "rectangles/notFound";
+        }
+        
     }
+
+    
     
 
 }

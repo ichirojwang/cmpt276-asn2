@@ -41,9 +41,22 @@ h2 {
 .rectangle-random {
     /* padding-left: 10px; */
     background-color: rgb(255, 136, 0);
-    width: 100px;
-    height: 60px;
+    width: 200px;
+    height: 50px;
     /* text-align: left; */
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+footer.cmpt276 {
+    margin-top: 10px;
+}
+
+footer.by-ichiro {
+    margin-top: 5px;
 }
 
 .mb-3 {
@@ -79,15 +92,6 @@ th.delete {
     width: 100px
 }
 
-caption {
-    margin-bottom: 10px;
-}
-
-h3 {
-    font-size: 16px;
-    font-weight: normal;
-}
-
 .custom-rect {
     background-color: black;
     /* margin: 20px; */
@@ -95,9 +99,14 @@ h3 {
     height: 40px;
 }
 
-.table-details {
+/* .table-details {
+    
+    width: 300px;
+} */
+
+.container-details {
     margin-top: 10px;
-    /* width: 300px; */
+    display: flex;
 }
 
 .col-attribute {
@@ -105,6 +114,13 @@ h3 {
 }
 .col-value {
     width: 200px;
+}
+
+.btn-secondary {
+    margin: 5px 0 0 10px;
+    width: 160px;
+    height: 30px;
+    padding: 0;
 }
 
 .form-label {
