@@ -26,21 +26,32 @@ h2 {
     width: 97%;
     min-height: 200px;
     border-radius: 5px;
+}
 
+.container {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
 }
 
 .about {
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }
 
 .rectangle-random {
-    margin: 30px;
-    background-color: rgb(112, 192, 202);
+    /* padding-left: 10px; */
+    background-color: rgb(255, 136, 0);
     width: 100px;
     height: 60px;
-    text-align: center;
-    vertical-align: middle;
+    /* text-align: left; */
+}
+
+.mb-3 {
+    width: 500px;
+}
+
+.form-control-color {
+    width: 80px;
 }
 
 .btn-outline-primary {
@@ -68,19 +79,32 @@ th.delete {
     width: 100px
 }
 
+caption {
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: normal;
+}
+
 .custom-rect {
     background-color: black;
-    margin: 20px;
+    /* margin: 20px; */
     width: 60px;
     height: 40px;
 }
 
-.col-1 {
-    width: 150px;
+.table-details {
+    margin-top: 10px;
+    /* width: 300px; */
 }
 
-.col-2 {
-    min-width: 150px;
+.col-attribute {
+    width: 100px;
+}
+.col-value {
+    width: 200px;
 }
 
 .form-label {
@@ -90,3 +114,10 @@ th.delete {
 .btn-lg {
     margin-top: 20px;
 }
+
+.link-danger, .link-primary {
+    background-color: white;
+    border: none;
+    text-decoration: underline;
+}
+

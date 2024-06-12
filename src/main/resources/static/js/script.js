@@ -15,5 +15,3 @@ btnAbout.addEventListener('click', function(evt) {
     window.location.href = '/about.html'; 
 });
 
-// var btnCreate = document.querySelector('input[value="Create"]');
-// btnCreate.addEventListener

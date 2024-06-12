@@ -18,6 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 
+
 @Controller //listen for requests from external source
 public class RectangleController {
 
@@ -28,13 +29,7 @@ public class RectangleController {
     public String getAllRectangles(Model model) {
         System.out.println("Getting all rectangles from database.");
         // get all users from database
-        List<Rectangle> rectangles = rectRepo.findAll();
-        // rectangles.add(new Rectangle("LeBron", 23, 23, "166088"));
-        // rectangles.add(new Rectangle("JR \"hennything is possible and I forgot what the score is\" Smith", 99, 93, "123456"));
-        // rectangles.add(new Rectangle("Kendrick Perkins", 10, 15, "4A6FA5"));
-        // rectangles.add(new Rectangle("Lance'll make em dance Stephenson", 100, 5, "4F6D7A"));
-        // rectangles.add(new Rectangle("Jimmer Freddette", 43, 12, "DDDDDD"));
-        // rectangles.add(new Rectangle("Jimmer Freddette version 2", 33, 33, "FFFFFF"));
+        List<Rectangle> rectangles = rectRepo.findByOrderByRidAsc();
         // end of database call
         model.addAttribute("rect", rectangles);
         return "rectangles/showAll";
@@ -48,17 +43,37 @@ public class RectangleController {
         int newHeight = Integer.parseInt(newrect.get("height"));
         String newColor = newrect.get("color");
 
-        rectRepo.save(new Rectangle(newName, newWidth, newHeight, newColor));
+        // if (newWidth < 0 || newHeight < 0) {
+        //     response.setStatus(400);
+        //     response.getWriter().write("Dimensions must be positive.");
+        //     return "redirect:/rectangles/view";
+        // }
 
+        rectRepo.save(new Rectangle(newName, newWidth, newHeight, newColor));
         response.setStatus(201);
-        return "rectangles/addedRect";
+
+        return "redirect:/rectangles/view";
     }
     
+    @PostMapping("/rectangles/delete")
+    public String deleteRectangle(@RequestParam("rid") int rid, HttpServletResponse response) {
 
-    // @GetMapping("/rectangles/details")
-    // public String showDetails() {
-    //     return "rectangles/details";
-    // }
+        System.out.println("Removing ID: " + rid);
+
+        rectRepo.deleteById(rid);
+        response.setStatus(202);
+
+        return "redirect:/rectangles/view";
+    }
+
+    @GetMapping("/rectangles/details")
+    public String detailsRectangle(@RequestParam("rid") int rid, Model model) {
+
+        Rectangle aRect = rectRepo.findByRid(rid);
+        model.addAttribute("myRect", aRect);
+
+        return "rectangles/showDetails";
+    }
     
 
 }

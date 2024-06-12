@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/rectangle.css">
+    <script src="/js/script.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <h1>Rectangle Database</h1>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <input type="button" value="Home" class="btn btn-outline-primary"></button>
+            <input type="button" value="Add" class="btn btn-outline-primary"></button>
+            <input type="button" value="About" class="btn btn-outline-primary"></button>
+        </div>
+    </header>
+
+    <main class="container-fluid">
+        <div class="container">
+            <h2>Rectangle Details</h2>
+
+            <h3><span th:text="${myRect.name}"></span></h3>
+            
+            <div class="custom-rect" id="custom-rect" 
+                th:style="'width: ' + ${myRect.width} + 'px;' +
+                          'height: ' + ${myRect.height} + 'px;' +
+                          'background-color: ' + ${myRect.color} + ';'"></div>
+
+            <table class="table table-bordered table-details">
+
+                <tr>
+                    <th class="col-attribute">Name</th>
+                    <td class="col-value"><span th:text="${myRect.name}"></span></td>
+                </tr>
+                <tr>
+                    <th class="col-attribute">Width</th>
+                    <td class="col-value"><span th:text="${myRect.width}"></span></td>
+                </tr>
+                <tr>
+                    <th class="col-attribute">Height</th>
+                    <td class="col-value"><span th:text="${myRect.height}"></span></td>
+                </tr>
+                <tr>
+                    <th class="col-attribute">Color</th>
+                    <td class="col-value"><span th:text="${myRect.color.substring(1).toUpperCase()}"></span></td>
+                </tr>
+
+
+            </table>
+        </div>
+
+        
+
+    </main>
+</body>
+</html>

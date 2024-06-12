@@ -30,10 +30,27 @@
                     <th class="delete"></th>
                 </tr>
                 <tr th:each="rectangle:${rect}">
-                    <td><span th:text="${rectangle.rid}"></span></td>
-                    <td><span th:text="${rectangle.name}"></span></td>
-                    <td><span th:text="${rectangle.color}"></span></td>
-                    <td>DELETE</td>
+                    <td>
+                        <span th:text="${rectangle.rid}"></span>
+                    </td>
+                    <td>
+                        <form action="/rectangles/details">
+                            <input type="hidden" name="rid" th:value="${rectangle.rid}">
+                            <button class="link-primary link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" type="submit">
+                                <span th:text="${rectangle.name}"></span>
+                            </button>
+
+                        </form>
+                    <td>
+                        <span th:text="${rectangle.color.substring(1).toUpperCase()}"></span>
+                    </td>
+                    <td>
+                        <form action="/rectangles/delete" method="post">
+                            <input type="hidden" name="rid" th:value="${rectangle.rid}">
+                            <input class="link-danger link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" 
+                                type="submit" value="DELETE">
+                        </form>
+                    </td>
                 </tr>
             </table>
         </div>
