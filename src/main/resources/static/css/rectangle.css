@@ -64,7 +64,9 @@ footer.by-ichiro {
 }
 
 .form-control-color {
-    width: 80px;
+    width: 100px;
+    height: 50px;
+    padding: 5px;
 }
 
 .btn-outline-primary {
@@ -99,14 +101,17 @@ th.delete {
     height: 40px;
 }
 
-/* .table-details {
-    
-    width: 300px;
-} */
+.form-details {
+    display: flex;
+}
 
 .container-details {
     margin-top: 10px;
     display: flex;
+}
+
+.table-details-rows {
+    height: 50px;
 }
 
 .col-attribute {
@@ -116,12 +121,31 @@ th.delete {
     width: 200px;
 }
 
-.btn-secondary {
+.btn-secondary, .btn-confirm {
     margin: 5px 0 0 10px;
     width: 160px;
     height: 30px;
     padding: 0;
 }
+
+.btn-confirm {
+    margin-top: 12px;
+}
+
+.container-btns {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control-text, .form-control-color-details {
+    margin: 0;
+    /* padding-left: 10px; */
+    height: 30px;
+}
+
+/* .form-control-text {
+    vertical-align: middle;
+} */
 
 .form-label {
     margin-bottom: 0;
@@ -136,4 +160,3 @@ th.delete {
     border: none;
     text-decoration: underline;
 }
-

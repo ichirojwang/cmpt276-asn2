@@ -32,29 +32,49 @@
             </div>
 
             <div class="container-details">
+
+                <form action="/rectangles/edit" method="post" class="form-details">
+                    <input type="hidden" name="rid" th:value="${myRect.rid}">
             
-                <table class="table table-bordered table-details">
+                    <table class="table table-bordered table-details">
 
-                    <tr>
-                        <th class="col-attribute">Name</th>
-                        <td class="col-value"><span th:text="${myRect.name}"></span></td>
-                    </tr>
-                    <tr>
-                        <th class="col-attribute">Width</th>
-                        <td class="col-value"><span th:text="${myRect.width}"></span></td>
-                    </tr>
-                    <tr>
-                        <th class="col-attribute">Height</th>
-                        <td class="col-value"><span th:text="${myRect.height}"></span></td>
-                    </tr>
-                    <tr>
-                        <th class="col-attribute">Color</th>
-                        <td class="col-value"><span th:text="${myRect.color.substring(1).toUpperCase()}"></span></td>
-                    </tr>
+                        <tr class="table-details-rows">
+                            <th class="col-attribute">Name</th>
+                            <td class="col-value">
+                                <div class="to-hide"><span th:text="${myRect.name}"></span></div>
+                                <input type="hidden" class="form-control form-control-text" id="name" name="name" placeholder="Name" required>
+                            </td>
+                        </tr>
+                        <tr class="table-details-rows">
+                            <th class="col-attribute">Width</th>
+                            <td class="col-value">
+                                <div class="to-hide"><span th:text="${myRect.width}"></span></div>
+                                <input type="hidden" class="form-control form-control-text" id="width" name="width" placeholder="Width" min="0" required>
+                            </td>
+                        </tr>
+                        <tr class="table-details-rows">
+                            <th class="col-attribute">Height</th>
+                            <td class="col-value">
+                                <div class="to-hide"><span th:text="${myRect.height}"></span></div>
+                                <input type="hidden" class="form-control form-control-text" id="height" name="height" placeholder="Height" min="0" required>
+                            </td>
+                        </tr>
+                        <tr class="table-details-rows">
+                            <th class="col-attribute">Color</th>
+                            <td class="col-value">
+                                <div class="to-hide"><span th:text="${myRect.color.substring(1).toUpperCase()}"></span></div>
+                                <input type="hidden" class="form-control form-control-color form-control-color-details" id="colorInput" name="color" value="#FF0000" title="Choose your color">
+                            </td>
+                        </tr>
 
-                </table>
+                    </table>
 
-                <input type="submit" class="btn btn-secondary" value="Edit Attributes">
+                    <div class="container-btns">
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="button" id="edit">Edit Attribute</button>
+                        <input type="hidden" id="confirm" class="btn btn-primary btn-confirm" value="Confirm Changes">
+                    </div>
+                    
+                </form>
 
             </div>
         </div>

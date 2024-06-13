@@ -36,12 +36,12 @@ public class RectangleController {
     }
 
     @PostMapping("/rectangles/add")
-    public String addRectangle(@RequestParam Map<String, String> newrect, HttpServletResponse response) {
+    public String addRectangle(@RequestParam Map<String, String> newRect, HttpServletResponse response) {
         System.out.println("ADD rectangle");
-        String newName = newrect.get("name");
-        int newWidth = Integer.parseInt(newrect.get("width"));
-        int newHeight = Integer.parseInt(newrect.get("height"));
-        String newColor = newrect.get("color");
+        String newName = newRect.get("name");
+        int newWidth = Integer.parseInt(newRect.get("width"));
+        int newHeight = Integer.parseInt(newRect.get("height"));
+        String newColor = newRect.get("color");
 
         rectRepo.save(new Rectangle(newName, newWidth, newHeight, newColor));
         response.setStatus(201);
@@ -80,7 +80,25 @@ public class RectangleController {
         
     }
 
-    
+    @PostMapping("/rectangles/edit")
+    public String editRectangle(@RequestParam Map<String, String> editRect, HttpServletResponse response) {
+
+        int rectId = Integer.parseInt(editRect.get("rid"));
+        Rectangle toEdit = rectRepo.findByRid(rectId);
+        toEdit.setName(editRect.get("name"));
+        toEdit.setWidth(Integer.parseInt(editRect.get("width")));
+        toEdit.setHeight(Integer.parseInt(editRect.get("height")));
+        toEdit.setColor(editRect.get("color"));
+
+        response.setStatus(200);
+
+        // System.out.println(editRect.get("name"));
+        // System.out.println(toEdit.getName());
+        // System.out.println(rectRepo.findByRid(rectId).getName());
+        rectRepo.save(toEdit);
+
+        return "redirect:/rectangles/details?rid=" + rectId;
+    }
     
 
 }
