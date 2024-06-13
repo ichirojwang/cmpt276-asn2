@@ -1,6 +1,5 @@
 package com.cmpt276.asn2.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -29,9 +28,9 @@ public class RectangleController {
     public String getAllRectangles(Model model) {
         System.out.println("Getting all rectangles from database.");
         // get all users from database
-        List<Rectangle> rectangles = rectRepo.findByOrderByRidAsc();
+        List<Rectangle> Rectangle = rectRepo.findByOrderByRidAsc();
         // end of database call
-        model.addAttribute("rect", rectangles);
+        model.addAttribute("rect", Rectangle);
         return "rectangles/showAll";
     }
 
