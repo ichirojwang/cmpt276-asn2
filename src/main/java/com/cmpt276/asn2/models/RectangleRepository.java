@@ -6,5 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RectangleRepository extends JpaRepository<Rectangle, Integer> {
     Rectangle findByRid(int rid);
+    List<Rectangle> findByWidthAndHeight(int width, int height);
     List<Rectangle> findByOrderByRidAsc();
 }
