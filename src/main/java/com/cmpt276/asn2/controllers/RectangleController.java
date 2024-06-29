@@ -98,6 +98,12 @@ public class RectangleController {
 
         return "redirect:/rectangles/details?rid=" + rectId;
     }
+
+    @GetMapping("path")
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+    
     
 
 }
